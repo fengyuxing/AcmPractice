@@ -2,15 +2,15 @@ package com.practice.acm.ThreeLevel;
 
 import com.practice.acm.Base;
 
+import java.util.Scanner;
 import java.util.Stack;
 
 /**
  * Author: zhangshupeng
- * Email: zhangshupeng@xywy.com
  * Date: 17/7/12 下午7:17
  */
 
-public class BracketMatch extends Base<Boolean> {
+public class BracketMatch extends Base<String,Boolean> {
     @Override
     public Boolean process(String data) {
         Stack<Character> stack=new Stack<>();
@@ -50,5 +50,9 @@ public class BracketMatch extends Base<Boolean> {
                 return left=='{';
         }
         return false;
+    }
+    @Override
+    public String handleInput(Scanner scanner) {
+        return scanner.nextLine();
     }
 }

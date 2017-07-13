@@ -10,10 +10,8 @@ public class Main {
         Scanner scanner=new Scanner(System.in);
         int count=scanner.nextInt();
         scanner.nextLine();
-        String[] testData=new String[count];
         for (int i=0;i<count;i++){
-            testData[i]=scanner.nextLine();
-            algorithm.printResult(algorithm.process(testData[i]));
+            algorithm.printResult(algorithm.process(algorithm.handleInput(scanner)));
         }
     }
 
