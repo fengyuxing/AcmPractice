@@ -1,11 +1,11 @@
 package com.practice.acm;
 
-import com.practice.acm.ThreeLevel.BracketMatch;
+import com.practice.acm.ThreeLevel.BinaryStringMatch;
 
 import java.util.Scanner;
 
 public class Main {
-    static IAlgorithm algorithm=new BracketMatch();
+    static IAlgorithm algorithm=new BinaryStringMatch();
     public static void main(String[] args){
         Scanner scanner=new Scanner(System.in);
         int count=scanner.nextInt();
