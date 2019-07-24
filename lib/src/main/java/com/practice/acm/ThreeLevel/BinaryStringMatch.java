@@ -1,12 +1,12 @@
 package com.practice.acm.ThreeLevel;
 
-import com.practice.acm.Base;
+import com.practice.acm.IAlgorithm;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 /**
+ * 查找一个字符串在另一个字符串中出现次数
  * Author: zhangshupeng
  * Date: 17/7/14 下午7:36
  * 问题描述
@@ -14,17 +14,17 @@ import java.util.Scanner;
  * 遍历处理，可考虑在不等处求最长后缀跳过部分str，再优化
  */
 
-public class BinaryStringMatch extends Base<List<String>,Integer> {
+public class BinaryStringMatch implements IAlgorithm<List<String>> {
     @Override
-    public List<String> handleInput(Scanner scanner) {
+    public List<String> getInput() {
         List<String> list=new ArrayList<>();
-        list.add(scanner.nextLine());
-        list.add(scanner.nextLine());
+        list.add("asadasdadasdasda");
+        list.add("asadasdadasdasdaasadasdadadadasdadaasdad");
         return list;
     }
 
     @Override
-    public Integer process(List<String> data) {
+    public void process(List<String> data) {
         char[] shotStr =data.get(0).toCharArray();
         char[] longStr =data.get(1).toCharArray();
         int matchCount=0;
@@ -47,7 +47,7 @@ public class BinaryStringMatch extends Base<List<String>,Integer> {
             if (isMatch)
                 matchCount++;
         }
-        return matchCount;
+        System.out.println(matchCount);
     }
 
 }

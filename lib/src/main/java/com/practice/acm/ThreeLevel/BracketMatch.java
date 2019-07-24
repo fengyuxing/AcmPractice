@@ -1,18 +1,19 @@
 package com.practice.acm.ThreeLevel;
 
-import com.practice.acm.Base;
+import com.practice.acm.IAlgorithm;
 
-import java.util.Scanner;
 import java.util.Stack;
 
 /**
+ * 判断括号是否匹配
  * Author: zhangshupeng
  * Date: 17/7/12 下午7:17
  */
 
-public class BracketMatch extends Base<String,Boolean> {
+public class BracketMatch implements IAlgorithm<String> {
     @Override
-    public Boolean process(String data) {
+    public void process(String data) {
+        boolean match=false;
         Stack<Character> stack=new Stack<>();
         char[] chars=data.toCharArray();
         for (char c:chars){
@@ -25,19 +26,18 @@ public class BracketMatch extends Base<String,Boolean> {
                     if(checkBracketMatch(top,c)){
                         stack.pop();
                     }else{
-                        return  false;
+                        match=false;
+                        break;
                     }
                 }
             }
         }
-        if (stack.isEmpty())
-            return true;
-        return false;
-    }
-
-    @Override
-    public void printResult(Boolean result) {
-        System.out.println(result?"Yes":"No");
+        if (stack.isEmpty()) {
+            match = true;
+        }else {
+            match = false;
+        }
+        System.out.println(match);
     }
 
     private boolean checkBracketMatch(char left, char right){
@@ -51,8 +51,9 @@ public class BracketMatch extends Base<String,Boolean> {
         }
         return false;
     }
+
     @Override
-    public String handleInput(Scanner scanner) {
-        return scanner.nextLine();
+    public String getInput() {
+        return "{{[]]}()()()}";
     }
 }
