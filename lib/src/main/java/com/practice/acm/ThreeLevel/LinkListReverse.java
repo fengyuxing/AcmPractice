@@ -2,8 +2,6 @@ package com.practice.acm.ThreeLevel;
 
 import com.practice.acm.IAlgorithm;
 
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -11,20 +9,48 @@ import java.util.Random;
  * Author: zhangshupeng
  * Date: 2019-07-24 18:31
  */
-public class LinkListReverse implements IAlgorithm<List<Integer>> {
+public class LinkListReverse implements IAlgorithm<LinkListReverse.Node> {
 
     @Override
-    public void process(List<Integer> data) {
+    public void process(Node head) {
+        System.out.println("process before:");
+        printList(head);
+        Node prev=null;Node current=head;Node next=null;
+        while(current!=null){
+            next=current.next;
+            current.next=prev;
+            //move to next Node
+            prev=current;
+            current=next;
+        }
+        System.out.println("process after:");
+        printList(prev);
+    }
 
+    private  void printList(Node node){
+        String s="";
+        while (node!=null){
+            s=s+node.value+"  ";
+            node=node.next;
+        }
+        System.out.println(s);
     }
 
     @Override
-    public List<Integer> getInput() {
-        List<Integer> list=new LinkedList<>();
+    public Node getInput() {
         Random random=new Random();
-        for (int i=0;i<5;i++) {
-            list.add(random.nextInt(100));
+        Node head=null;
+        for (int i=0;i<10;i++) {
+            Node node=new Node();
+            node.value=random.nextInt(100);
+            node.next=head;
+            head=node;
         }
-        return list;
+        return head;
+    }
+
+    static class Node {
+        int value;
+        Node next;
     }
 }

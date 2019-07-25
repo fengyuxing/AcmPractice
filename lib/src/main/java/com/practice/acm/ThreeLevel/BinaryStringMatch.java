@@ -24,9 +24,9 @@ public class BinaryStringMatch implements IAlgorithm<List<String>> {
     }
 
     @Override
-    public void process(List<String> data) {
-        char[] shotStr =data.get(0).toCharArray();
-        char[] longStr =data.get(1).toCharArray();
+    public void process(List<String> input) {
+        char[] shotStr = input.get(0).toCharArray();
+        char[] longStr = input.get(1).toCharArray();
         int matchCount=0;
         for (int i = 0; i< longStr.length; i++){
             boolean isMatch=true;

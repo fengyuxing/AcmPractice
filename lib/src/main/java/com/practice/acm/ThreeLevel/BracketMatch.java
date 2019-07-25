@@ -12,10 +12,10 @@ import java.util.Stack;
 
 public class BracketMatch implements IAlgorithm<String> {
     @Override
-    public void process(String data) {
+    public void process(String input) {
         boolean match=false;
         Stack<Character> stack=new Stack<>();
-        char[] chars=data.toCharArray();
+        char[] chars= input.toCharArray();
         for (char c:chars){
             if (c=='('||c=='['||c=='{'){
                 stack.push(c);
