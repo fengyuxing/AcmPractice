@@ -11,7 +11,43 @@ import java.util.Random;
 public class QuickSort implements IAlgorithm<int[]> {
     @Override
     public void process(int[] input) {
+        printArray(input);
+        int start=0;
+        int end=input.length-1;
+        sort(input,start,end);
+        printArray(input);
+    }
+    private  void printArray(int[] input){
+        String s="";
+        for (int i:input){
+            s=s+i+"  ";
+        }
+        System.out.println(s);
+    }
 
+    private void sort(int[] input,int start,int end){
+        if (start>=end-1)
+            return;
+        Random random=new Random();
+        int index=random.nextInt(end-start)+start;
+        int compareValue=input[index];
+        int left=start;
+        int right=end;
+
+        while (left<right){//一次遍历分割成两个小数组
+            int current=input[left];
+            if (current<compareValue){
+                left++;
+            }else{
+                current=input[right];
+                input[right]=input[left];
+                input[left]=current;
+                right--;
+            }
+        }
+        System.out.println("start="+start+",left="+left+"end="+end);
+        sort(input,start,left);
+        sort(input,right,end);
     }
 
 
