@@ -1,4 +1,4 @@
-package com.practice.acm.ThreeLevel;
+package com.practice.acm.impl;
 
 import com.practice.acm.IAlgorithm;
 

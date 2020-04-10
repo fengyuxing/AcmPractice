@@ -1,6 +1,6 @@
 package com.practice.acm;
 
-import com.practice.acm.ThreeLevel.QuickSort;
+import com.practice.acm.impl.QuickSort;
 
 public class Main {
     static IAlgorithm algorithm=new QuickSort();
